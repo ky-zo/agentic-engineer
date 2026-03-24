@@ -331,7 +331,7 @@ export default function Home() {
                 <img
                   src="/heyreach-icon.svg"
                   alt="HeyReach"
-                  className="h-5 opacity-60"
+                  className="h-5"
                 />
               </div>
             </div>
