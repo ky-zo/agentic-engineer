@@ -134,13 +134,13 @@
     color: var(--foreground);
   }
   html {
-    @apply font-sans;
+    @apply font-sans relative;
     scroll-behavior: smooth;
   }
 }
 
 .highlight-on-scroll {
-  background-image: linear-gradient(var(--accent), var(--accent));
+  background-image: linear-gradient(#3fb950, #3fb950);
   background-size: 0% 40%;
   background-repeat: no-repeat;
   background-position: 0 85%;

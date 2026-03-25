@@ -13,7 +13,7 @@ export function ImpactSection() {
   });
 
   return (
-    <div ref={ref}>
+    <div ref={ref} className="relative">
       <MetricsBars scrollYProgress={scrollYProgress} />
       <div className="mt-10">
         <PipelineFlow scrollYProgress={scrollYProgress} />

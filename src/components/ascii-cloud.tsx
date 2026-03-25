@@ -238,8 +238,20 @@ export function AsciiCloud() {
   useEffect(() => {
     let elapsed = 0;
     const startTime = performance.now();
+    let visible = true;
+
+    const io = new IntersectionObserver(
+      ([e]) => { visible = e.isIntersecting; },
+      { threshold: 0 },
+    );
+    if (containerRef.current) io.observe(containerRef.current);
 
     const animate = (time: number) => {
+      if (!visible) {
+        rafId.current = requestAnimationFrame(animate);
+        return;
+      }
+
       const t = (time - startTime) / 1000;
 
       // Idle gaze
@@ -292,8 +304,8 @@ export function AsciiCloud() {
         blinking.current = false;
       }
 
-      // Refresh ~25fps
-      if (time - lastCharUpdate.current > 40) {
+      // Refresh ~24fps
+      if (time - lastCharUpdate.current > 42) {
         tick.current++;
         lastCharUpdate.current = time;
 
@@ -335,7 +347,10 @@ export function AsciiCloud() {
       );
     }
     rafId.current = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(rafId.current);
+    return () => {
+      cancelAnimationFrame(rafId.current);
+      io.disconnect();
+    };
   }, []);
 
   return (
