@@ -29,11 +29,7 @@ export default function RootLayout({
       lang="en"
       className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased`}
     >
-      <Script
-          src="//unpkg.com/react-scan/dist/auto.global.js"
-          crossOrigin="anonymous"
-          strategy="beforeInteractive"
-        />
+      
       <body className="min-h-dvh flex flex-col">{children}</body>
     </html>
   );

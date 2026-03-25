@@ -12,9 +12,18 @@ function Section({ children, id }: { children: React.ReactNode; id?: string }) {
   );
 }
 
-function SectionLabel({ children }: { children: React.ReactNode }) {
+function SectionLabel({
+  children,
+  id,
+}: {
+  children: React.ReactNode;
+  id?: string;
+}) {
   return (
-    <h2 className="font-mono text-xs font-medium tracking-wider uppercase text-[var(--muted)] mb-6 flex items-center gap-3">
+    <h2
+      id={id}
+      className="font-mono text-xs font-medium tracking-wider uppercase text-[var(--muted)] mb-6 flex items-center gap-3"
+    >
       <span className="shrink-0 flex items-center gap-2">{children}</span>
       <span className="flex-1 border-t border-[var(--border)]" />
     </h2>
@@ -152,7 +161,7 @@ export default function Home() {
 
           {/* Approach */}
           <Section>
-            <SectionLabel>
+            <SectionLabel id="goal-title">
               <span
                 className="inline-block size-2.5 rounded-[2px]"
                 style={{
@@ -178,7 +187,7 @@ export default function Home() {
                 Including
               </p>
 
-              <ToolChecklist />
+              <ToolChecklist endTargetId="goal-title" />
 
               <p>
                 The goal is adoption and changed behavior, not information
@@ -198,20 +207,20 @@ export default function Home() {
                     "0 0 6px oklch(0.6 0.17 145 / 0.6), 0 0 14px oklch(0.6 0.17 145 / 0.3)",
                 }}
               />
-              The Offer
+              The Offers
             </SectionLabel>
 
-            <div className="grid sm:grid-cols-2 gap-6 sm:gap-10">
-              {/* AI Setup Sprint */}
+            <div className="grid sm:grid-cols-3 gap-6 sm:gap-10">
+              {/* Turn your team into AI-first */}
               <div>
                 <p
                   className="text-lg font-semibold tracking-tight mb-1"
                   style={{ letterSpacing: "-0.02em" }}
                 >
-                  AI Setup Sprint
+                  Turn your team into AI-first
                 </p>
                 <p className="font-mono text-sm text-[var(--muted)] mb-3">
-                  $5,000 &bull; 2 weeks
+                  $7,000 &bull; one-time
                 </p>
                 <ul className="space-y-1.5 text-sm text-[var(--muted)]">
                   <li className="flex gap-2">
@@ -247,13 +256,13 @@ export default function Home() {
                 </ul>
               </div>
 
-              {/* Fractional AI */}
+              {/* Hire me as Fractional AI CTO */}
               <div>
                 <p
                   className="text-lg font-semibold tracking-tight mb-1"
                   style={{ letterSpacing: "-0.02em" }}
                 >
-                  Fractional AI Lead
+                  Hire me as Fractional AI CTO
                 </p>
                 <p className="font-mono text-sm text-[var(--muted)] mb-3">
                   $10,000/mo &bull; ongoing
@@ -263,7 +272,13 @@ export default function Home() {
                     <span className="font-mono text-[var(--accent)] shrink-0">
                       &gt;
                     </span>
-                    Everything in the Sprint
+                    Embedded in your team&apos;s rhythm
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="font-mono text-[var(--accent)] shrink-0">
+                      &gt;
+                    </span>
+                    Strategic AI roadmap ownership
                   </li>
                   <li className="flex gap-2">
                     <span className="font-mono text-[var(--accent)] shrink-0">
@@ -275,19 +290,58 @@ export default function Home() {
                     <span className="font-mono text-[var(--accent)] shrink-0">
                       &gt;
                     </span>
-                    Workflow design &amp; automation
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="font-mono text-[var(--accent)] shrink-0">
-                      &gt;
-                    </span>
                     Cross-team AI adoption
                   </li>
                   <li className="flex gap-2">
                     <span className="font-mono text-[var(--accent)] shrink-0">
                       &gt;
                     </span>
-                    Embedded in your team&apos;s rhythm
+                    Workflow design &amp; automation
+                  </li>
+                </ul>
+              </div>
+
+              {/* Implement AI Orchestrator */}
+              <div>
+                <p
+                  className="text-lg font-semibold tracking-tight mb-1"
+                  style={{ letterSpacing: "-0.02em" }}
+                >
+                  Implement AI Orchestrator
+                </p>
+                <p className="font-mono text-sm text-[var(--muted)] mb-3">
+                  $5,000/mo &bull; ongoing
+                </p>
+                <ul className="space-y-1.5 text-sm text-[var(--muted)]">
+                  <li className="flex gap-2">
+                    <span className="font-mono text-[var(--accent)] shrink-0">
+                      &gt;
+                    </span>
+                    Custom AI orchestration system
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="font-mono text-[var(--accent)] shrink-0">
+                      &gt;
+                    </span>
+                    End-to-end pipeline setup
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="font-mono text-[var(--accent)] shrink-0">
+                      &gt;
+                    </span>
+                    Integration with your stack
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="font-mono text-[var(--accent)] shrink-0">
+                      &gt;
+                    </span>
+                    Automation workflows
+                  </li>
+                  <li className="flex gap-2">
+                    <span className="font-mono text-[var(--accent)] shrink-0">
+                      &gt;
+                    </span>
+                    Full handoff with documentation
                   </li>
                 </ul>
               </div>
@@ -331,13 +385,13 @@ export default function Home() {
               <div className="flex items-center gap-3">
                 <Image
                   src="/heyreach-logo.jpg"
-                  alt="Nikola Velkowski"
+                  alt="Nick Velkovski"
                   width={40}
                   height={40}
                   className="rounded-full object-cover"
                 />
                 <div>
-                  <p className="text-sm font-semibold">Nikola Velkowski</p>
+                  <p className="text-sm font-semibold">Nick Velkovski</p>
                   <p className="text-xs text-[var(--muted)]">
                     HeyReach (+$10m ARR)
                   </p>

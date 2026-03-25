@@ -204,6 +204,8 @@ export function AsciiCloud() {
   const nextGazeChange = useRef(1500 + Math.random() * 2000);
   const gazeElapsed = useRef(0);
 
+  const isGyroActive = useRef(false);
+
   const handleMouseMove = useCallback((e: MouseEvent) => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
@@ -230,10 +232,57 @@ export function AsciiCloud() {
     isMouseActive.current = true;
   }, []);
 
+  const handleOrientation = useCallback((e: DeviceOrientationEvent) => {
+    // gamma: left-right tilt (-90 to 90), beta: front-back tilt (-180 to 180)
+    const gamma = e.gamma ?? 0;
+    const beta = e.beta ?? 0;
+    // Normalize: phone held upright ~beta=90, so offset from that
+    const tiltX = Math.max(-30, Math.min(30, gamma)) / 30;
+    const tiltY = Math.max(-30, Math.min(30, beta - 60)) / 30;
+    const maxShift = 2.8;
+
+    targetOffset.current = {
+      x: tiltX * maxShift,
+      y: tiltY * maxShift * 0.5,
+    };
+
+    bodyTarget.current = {
+      x: tiltX * 6,
+      y: tiltY * 3,
+    };
+
+    lastMouseMove.current = performance.now();
+    isMouseActive.current = true;
+    isGyroActive.current = true;
+  }, []);
+
   useEffect(() => {
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [handleMouseMove]);
+
+    // Device orientation for mobile Safari (iOS)
+    const DOE = DeviceOrientationEvent as typeof DeviceOrientationEvent & {
+      requestPermission?: () => Promise<"granted" | "denied">;
+    };
+    if (typeof DOE.requestPermission === "function") {
+      // iOS 13+ requires a user gesture to request permission
+      const requestGyro = () => {
+        DOE.requestPermission!().then((state) => {
+          if (state === "granted") {
+            window.addEventListener("deviceorientation", handleOrientation, { passive: true });
+          }
+        });
+        window.removeEventListener("touchstart", requestGyro);
+      };
+      window.addEventListener("touchstart", requestGyro, { once: true });
+    } else if ("DeviceOrientationEvent" in window) {
+      window.addEventListener("deviceorientation", handleOrientation, { passive: true });
+    }
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("deviceorientation", handleOrientation);
+    };
+  }, [handleMouseMove, handleOrientation]);
 
   useEffect(() => {
     let elapsed = 0;
@@ -256,7 +305,7 @@ export function AsciiCloud() {
 
       // Idle gaze
       const mouseIdleMs = time - lastMouseMove.current;
-      if (isMouseActive.current && mouseIdleMs > 2000) {
+      if (isMouseActive.current && mouseIdleMs > 2000 && !isGyroActive.current) {
         isMouseActive.current = false;
       }
       if (!isMouseActive.current) {
