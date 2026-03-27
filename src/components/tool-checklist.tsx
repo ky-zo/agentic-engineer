@@ -618,7 +618,7 @@ export function ToolChecklist({
       const endTargetRect = endTargetEl.getBoundingClientRect();
       const scrollTop = window.scrollY;
       const start = graphRect.bottom + scrollTop - window.innerHeight;
-      const end = endTargetRect.top + scrollTop;
+      const end = endTargetRect.top + scrollTop - window.innerHeight * 0.35;
 
       scrollBoundsRef.current = {
         start,
