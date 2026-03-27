@@ -5,7 +5,7 @@ import { useInView } from "motion/react";
 
 export function HighlightOnScroll({ children }: { children: React.ReactNode }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "0px 0px -80% 0px" });
+  const isInView = useInView(ref, { margin: "0px 0px -50% 0px" });
 
   return (
     <span

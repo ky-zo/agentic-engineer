@@ -1,8 +1,14 @@
 import Image from "next/image";
 import { AsciiCloud } from "@/components/ascii-cloud";
 import { HighlightOnScroll } from "@/components/highlight-on-scroll";
+import { PenUnderline } from "@/components/pen-underline";
 import { ImpactSection } from "@/components/impact-section";
 import { ToolChecklist } from "@/components/tool-checklist";
+import {
+  AccelerateAnimation,
+  MultiplyAnimation,
+  PipelineAnimation,
+} from "@/components/offer-animations";
 
 function Section({ children, id }: { children: React.ReactNode; id?: string }) {
   return (
@@ -141,8 +147,8 @@ export default function Home() {
               className="text-lg sm:text-xl font-semibold tracking-tight leading-snug mb-6"
               style={{ letterSpacing: "-0.02em" }}
             >
-              You know <HighlightOnScroll>AI changes everything</HighlightOnScroll>, you&apos;re just not sure what to
-              do about it.
+              You know <HighlightOnScroll>AI changes everything</HighlightOnScroll>, you&apos;re just not sure{" "}
+              <PenUnderline>what to do about it.</PenUnderline>
             </p>
 
             <div className="space-y-4 text-sm text-[var(--muted)]">
@@ -213,8 +219,9 @@ export default function Home() {
             <div className="grid sm:grid-cols-3 gap-6 sm:gap-10">
               {/* Turn your team into AI-first */}
               <div>
+                <AccelerateAnimation />
                 <p
-                  className="text-lg font-semibold tracking-tight mb-1"
+                  className="text-lg font-semibold tracking-tight mb-1 mt-2"
                   style={{ letterSpacing: "-0.02em" }}
                 >
                   Turn your team into AI-first
@@ -256,13 +263,14 @@ export default function Home() {
                 </ul>
               </div>
 
-              {/* Hire me as Fractional AI CTO */}
+              {/* Hire Fractional AI CTO */}
               <div>
+                <MultiplyAnimation />
                 <p
-                  className="text-lg font-semibold tracking-tight mb-1"
+                  className="text-lg font-semibold tracking-tight mb-1 mt-2"
                   style={{ letterSpacing: "-0.02em" }}
                 >
-                  Hire me as Fractional AI CTO
+                  Hire Fractional AI CTO
                 </p>
                 <p className="font-mono text-sm text-[var(--muted)] mb-3">
                   $10,000/mo &bull; ongoing
@@ -303,8 +311,9 @@ export default function Home() {
 
               {/* Implement AI Orchestrator */}
               <div>
+                <PipelineAnimation />
                 <p
-                  className="text-lg font-semibold tracking-tight mb-1"
+                  className="text-lg font-semibold tracking-tight mb-1 mt-2"
                   style={{ letterSpacing: "-0.02em" }}
                 >
                   Implement AI Orchestrator

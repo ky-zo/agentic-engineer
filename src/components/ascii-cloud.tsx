@@ -2,8 +2,11 @@
 
 import { useCallback, useEffect, useRef } from "react";
 
-const COLS = 58;
-const ROWS = 28;
+export const CLOUD_COLS = 58;
+export const CLOUD_ROWS = 28;
+
+const COLS = CLOUD_COLS;
+const ROWS = CLOUD_ROWS;
 
 const CHAR_POOL = "abcdefghijklmnopqrstuvwxyz0123456789!@#$%&*+=?/<>~^:.";
 const LIGHT_CHARS = ".:;'`";
@@ -82,8 +85,8 @@ const SVG_W = 346;
 const SVG_H = 307;
 
 // Pre-compute masks by mapping grid cells to SVG coordinates
-const cloudMask: boolean[][] = [];
-const edgeMask: boolean[][] = [];
+export const cloudMask: boolean[][] = [];
+export const edgeMask: boolean[][] = [];
 for (let y = 0; y < ROWS; y++) {
   cloudMask[y] = [];
   edgeMask[y] = [];
@@ -109,12 +112,12 @@ for (let y = 0; y < ROWS; y++) {
 
 // Eyes positioned in SVG space, mapped to grid
 // SVG center ~(173, 153), eyes slightly above center
-const LEFT_EYE_BASE = { cx: 23, cy: 12, rx: 3.5, ry: 3.8 };
-const RIGHT_EYE_BASE = { cx: 37, cy: 12, rx: 3.5, ry: 3.8 };
+export const LEFT_EYE_BASE = { cx: 23, cy: 12, rx: 3.5, ry: 3.8 };
+export const RIGHT_EYE_BASE = { cx: 37, cy: 12, rx: 3.5, ry: 3.8 };
 
 const BLINK_RY = 0.4;
 
-function isInEllipse(
+export function isInEllipse(
   x: number,
   y: number,
   cx: number,

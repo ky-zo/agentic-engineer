@@ -6,6 +6,8 @@ import { useEffect, useRef } from "react";
 const STAGES = ["PLAN", "CODE", "REVIEW", "TEST", "DEPLOY"];
 const SQ = 5;
 const MAX_DOTS = 120;
+const OPEN_DURATION_MS = 320;
+const CLOSE_DURATION_MS = 520;
 
 const GREENS = [
   "#39d353",
@@ -41,6 +43,7 @@ export function PipelineFlow({
     nid: 0,
     w: 0,
     h: 0,
+    lastFrameTs: 0,
   });
 
   useEffect(() => {
@@ -98,7 +101,10 @@ export function PipelineFlow({
       return 0.003 + 0.997 * openness ** 0.3;
     };
 
-    const frame = () => {
+    const frame = (ts: number) => {
+      const dt = s.lastFrameTs === 0 ? 16.67 : Math.min(ts - s.lastFrameTs, 48);
+      s.lastFrameTs = ts;
+
       if (!visible) {
         raf = requestAnimationFrame(frame);
         return;
@@ -121,7 +127,14 @@ export function PipelineFlow({
       for (let i = 0; i < STAGES.length; i++) {
         const threshold = (i + 1) / (STAGES.length + 1);
         const target = progress >= threshold ? 1 : 0;
-        s.transitions[i] += (target - s.transitions[i]) * 0.04;
+        const duration = target === 1 ? OPEN_DURATION_MS : CLOSE_DURATION_MS;
+        const maxStep = dt / duration;
+        const delta = target - s.transitions[i];
+        if (Math.abs(delta) <= maxStep) {
+          s.transitions[i] = target;
+        } else {
+          s.transitions[i] += Math.sign(delta) * maxStep;
+        }
 
         const el = labelsRef.current[i];
         if (el) {
@@ -133,11 +146,11 @@ export function PipelineFlow({
 
       // Spawn
       s.tick++;
-      if (s.tick % 3 === 0 && dots.length < MAX_DOTS) {
+      if (s.tick % 2 === 0 && dots.length < MAX_DOTS) {
         dots.push({
           x: -0.015,
           y: 0.5 + (Math.random() - 0.5) * 0.35,
-          speed: 0.001 + Math.random() * 0.002,
+          speed: 0.002 + Math.random() * 0.003,
           colorIdx: s.nid++ % GREENS.length,
         });
       }
