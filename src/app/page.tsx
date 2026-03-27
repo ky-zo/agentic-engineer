@@ -9,6 +9,7 @@ import {
   PipelineAnimation,
 } from "@/components/offer-animations";
 import { PenUnderline } from "@/components/pen-underline";
+import { CopyEmail } from "@/components/copy-email";
 import { ToolChecklist } from "@/components/tool-checklist";
 
 function Section({ children, id }: { children: React.ReactNode; id?: string }) {
@@ -50,7 +51,7 @@ export default function Home() {
 
             <div className="lg:max-w-[80%]">
               <h1 className="font-mono text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight leading-tight mb-6">
-                Turn your team into an AI-native shipping machine.
+                Turn your team into an <span className="whitespace-nowrap">AI-native</span> shipping machine.
               </h1>
 
               <p className="text-base leading-relaxed text-[var(--muted)] mb-8">
@@ -567,12 +568,10 @@ export default function Home() {
           {/* Footer */}
           <footer className="py-8 mt-4">
             <p className="font-mono text-xs text-[var(--muted)] flex flex-wrap items-center gap-1.5">
-              <a
-                href="mailto:ai@kyzo.io"
+              <CopyEmail
+                email="ai@kyzo.io"
                 className="underline underline-offset-2 hover:text-[var(--foreground)] transition-colors"
-              >
-                ai@kyzo.io
-              </a>
+              />
               <span>&bull;</span>
               <a
                 href="https://x.com/ky__zo"
@@ -584,9 +583,7 @@ export default function Home() {
               </a>
               <span>&bull;</span>
               <a
-                href="https://cal.com/kamil-kyzo/discovery"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/ai"
                 className="underline underline-offset-2 hover:text-[var(--foreground)] transition-colors"
               >
                 cal.com
