@@ -14,7 +14,7 @@ export function PenUnderline({ children }: { children: React.ReactNode }) {
       ([entry]) => {
         setVisible(entry.isIntersecting);
       },
-      { rootMargin: "0px 0px -60% 0px" }
+      { rootMargin: "0px 0px -40% 0px" }
     );
 
     observer.observe(el);

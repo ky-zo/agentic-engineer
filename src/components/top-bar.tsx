@@ -10,11 +10,7 @@ export function TopBar() {
         </span>
         <span className="flex items-center gap-2">
           <span
-            className="inline-block size-1.5 rounded-full animate-[pulse-dot_4s_ease-in-out_infinite]"
-            style={{
-              backgroundColor: "oklch(0.62 0.17 145)",
-              boxShadow: "0 0 6px oklch(0.62 0.17 145 / 0.4)",
-            }}
+            className="inline-block size-1.5 rounded-full bg-green-600 shadow-[0_0_6px_rgb(22_163_74/0.4)] animate-[pulse-dot_4s_ease-in-out_infinite]"
           />
           2 slots open
         </span>

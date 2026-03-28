@@ -1,3 +1,4 @@
+import { CalButton } from "@/components/cal-button";
 import { CopyEmail } from "@/components/copy-email";
 
 export function FooterSection() {
@@ -18,11 +19,17 @@ export function FooterSection() {
           @ky__zo
         </a>
         <span>&bull;</span>
+        <CalButton className="underline underline-offset-2 hover:text-[var(--foreground)] transition-colors">
+          Book a call
+        </CalButton>
+        <span>&bull;</span>
         <a
-          href="/ai"
+          href="https://github.com/ky-zo/agentic-engineer"
+          target="_blank"
+          rel="noopener noreferrer"
           className="underline underline-offset-2 hover:text-[var(--foreground)] transition-colors"
         >
-          cal.com
+          GitHub Repo
         </a>
       </p>
     </footer>
