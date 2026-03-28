@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef } from "react";
+import { playHoverSound, playClickSound } from "./ascii-cloud-sounds";
 
 export const CLOUD_COLS = 58;
 export const CLOUD_ROWS = 28;
@@ -200,13 +201,21 @@ export function AsciiCloud() {
 
   // Mouse position in client coordinates
   const mouseClient = useRef({ x: -9999, y: -9999 });
+  const lastSoundTime = useRef(0);
 
   // Ripple waves triggered by click
   const ripples = useRef<{ cx: number; cy: number; t: number; speed: number }[]>([]);
+  const hasClicked = useRef(false);
 
   const handleClick = useCallback((e: MouseEvent) => {
     const grid = gridRef.current;
     if (!grid) return;
+
+    if (!hasClicked.current) {
+      hasClicked.current = true;
+      containerRef.current?.style.setProperty("cursor", "default");
+    }
+
     const rect = grid.getBoundingClientRect();
     // Store click position in pixels relative to grid
     ripples.current.push({
@@ -215,6 +224,7 @@ export function AsciiCloud() {
       t: 0,
       speed: 3, // pixels per frame the wave front expands
     });
+    playClickSound();
   }, []);
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
@@ -243,6 +253,26 @@ export function AsciiCloud() {
 
     lastMouseMove.current = performance.now();
     isMouseActive.current = true;
+
+    // Play sounds when cursor is over the cloud grid area
+    const grid = gridRef.current;
+    if (grid) {
+      const gridRect = grid.getBoundingClientRect();
+      const inGrid =
+        e.clientX >= gridRect.left &&
+        e.clientX <= gridRect.right &&
+        e.clientY >= gridRect.top &&
+        e.clientY <= gridRect.bottom;
+      if (inGrid) {
+        const now = performance.now();
+        // Throttle: one sound every 200-500ms (randomized for organic feel)
+        const cooldown = 200 + Math.random() * 300;
+        if (now - lastSoundTime.current > cooldown) {
+          lastSoundTime.current = now;
+          playHoverSound();
+        }
+      }
+    }
   }, []);
 
   const handleOrientation = useCallback((e: DeviceOrientationEvent) => {
@@ -550,7 +580,7 @@ export function AsciiCloud() {
   }, []);
 
   return (
-    <div ref={containerRef} className="select-none" aria-hidden="true">
+    <div ref={containerRef} className="select-none cursor-pointer" aria-hidden="true">
       <div
         ref={gridRef}
         className="font-mono text-[0.45rem] leading-none sm:text-[0.55rem] md:text-[0.65rem] tracking-tight will-change-transform"
