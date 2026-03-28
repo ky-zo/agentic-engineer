@@ -1,21 +1,20 @@
 "use client";
 
-import { Section, SectionLabel } from "@/components/section";
+import posthog from "posthog-js";
 import { useState } from "react";
+import { Section, SectionLabel } from "@/components/section";
 
-function FAQItem({
-  question,
-  answer,
-}: {
-  question: string;
-  answer: string;
-}) {
+function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [open, setOpen] = useState(false);
 
   return (
     <div className="py-5 first:pt-0 border-b border-[var(--border)] last:border-b-0">
       <button
-        onClick={() => setOpen(!open)}
+        type="button"
+        onClick={() => {
+          if (!open) posthog.capture("faq_opened", { question });
+          setOpen(!open);
+        }}
         className="text-sm cursor-pointer flex items-start gap-3 font-medium w-full text-left"
       >
         <span
@@ -57,7 +56,8 @@ const faqs = [
       "Usually yes. Most teams already use AI in pockets. The problem is that it's inconsistent, shallow, or disconnected from how the team actually ships. The sprint is about making that leverage real and daily.",
   },
   {
-    question: "Can this help if we're starting something new or haven't launched yet?",
+    question:
+      "Can this help if we're starting something new or haven't launched yet?",
     answer:
       "Yes, if you already have a functioning team and want to set modern AI-native workflows and standards early. No, if you are still too early for process change to matter.",
   },
@@ -70,7 +70,11 @@ export function FAQSection() {
 
       <div className="space-y-0 divide-y divide-[var(--border)]">
         {faqs.map((faq) => (
-          <FAQItem key={faq.question} question={faq.question} answer={faq.answer} />
+          <FAQItem
+            key={faq.question}
+            question={faq.question}
+            answer={faq.answer}
+          />
         ))}
       </div>
     </Section>

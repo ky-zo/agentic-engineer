@@ -1,14 +1,14 @@
-import { TopBar } from "@/components/top-bar";
-import { HeroSection } from "@/components/hero-section";
-import { ProblemSection } from "@/components/problem-section";
-import { GoalSection } from "@/components/goal-section";
-import { OffersSection } from "@/components/offers-section";
-import { ImpactSectionWrapper } from "@/components/impact-section-wrapper";
-import { TestimonialSection } from "@/components/testimonial-section";
-import { FitSection } from "@/components/fit-section";
-import { FAQSection } from "@/components/faq-section";
 import { CTASection } from "@/components/cta-section";
+import { FAQSection } from "@/components/faq-section";
+import { FitSection } from "@/components/fit-section";
 import { FooterSection } from "@/components/footer-section";
+import { GoalSection } from "@/components/goal-section";
+import { HeroSection } from "@/components/hero-section";
+import { ImpactSectionWrapper } from "@/components/impact-section-wrapper";
+import { OffersSection } from "@/components/offers-section";
+import { ProblemSection } from "@/components/problem-section";
+import { TestimonialSection } from "@/components/testimonial-section";
+import { TopBar } from "@/components/top-bar";
 
 export default function Home() {
   return (
@@ -16,7 +16,6 @@ export default function Home() {
       <main className="w-full mx-auto px-6 sm:px-8">
         <TopBar />
         <HeroSection />
-
         <div className="max-w-3xl mx-auto">
           <ProblemSection />
           <GoalSection />

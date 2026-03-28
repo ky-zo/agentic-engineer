@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import posthog from "posthog-js";
+import { useCallback, useState } from "react";
 
 export function CopyEmail({
   email,
@@ -12,6 +13,7 @@ export function CopyEmail({
   const [copied, setCopied] = useState(false);
 
   const handleClick = useCallback(async () => {
+    posthog.capture("email_copied", { email });
     try {
       await navigator.clipboard.writeText(email);
       setCopied(true);
