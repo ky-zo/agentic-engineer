@@ -34,7 +34,7 @@ export function OffersSection() {
             into AI-first speed
           </p>
           <p className="font-mono text-sm text-[var(--muted)] mb-3">
-            $7,000 &bull; one-time
+            $10 000 &bull; one-time
           </p>
           <ul className="space-y-1.5 text-sm text-[var(--muted)]">
             <li className="flex gap-2">
@@ -75,7 +75,7 @@ export function OffersSection() {
             <br />& product co-founder
           </p>
           <p className="font-mono text-sm text-[var(--muted)] mb-3">
-            $10,000/mo &bull; ongoing
+            $10 000/mo &bull; ongoing
           </p>
           <ul className="space-y-1.5 text-sm text-[var(--muted)]">
             <li className="flex gap-2">
@@ -123,7 +123,7 @@ export function OffersSection() {
             agents orchestrator
           </p>
           <p className="font-mono text-sm text-[var(--muted)] mb-3">
-            $5,000/mo &bull; ongoing
+            $5 000/mo &bull; ongoing
           </p>
           <ul className="space-y-1.5 text-sm text-[var(--muted)]">
             <li className="flex gap-2">
