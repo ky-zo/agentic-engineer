@@ -53,6 +53,9 @@ export function OffersSection() {
               Bring your questions, blockers, or rough ideas
             </li>
           </ul>
+          <a href="https://buy.stripe.com/fZufZh2BmarjcCpcdn6AM07" target="_blank" rel="noopener noreferrer" className="sm:hidden font-mono text-xs font-medium px-5 py-2.5 bg-[var(--foreground)] text-[var(--background)] hover:opacity-90 transition-opacity cursor-pointer inline-block mt-4">
+            Book a consultation
+          </a>
         </div>
 
         {/* AI workshops for your team */}
@@ -86,6 +89,9 @@ export function OffersSection() {
               Practical guidance, workflows, and hands-on support
             </li>
           </ul>
+          <CalButton className="sm:hidden font-mono text-xs font-medium px-5 py-2.5 bg-[var(--foreground)] text-[var(--background)] hover:opacity-90 transition-opacity cursor-pointer inline-block mt-4">
+            Book an intro call
+          </CalButton>
         </div>
 
         {/* AI agent orchestration system */}
@@ -122,7 +128,7 @@ export function OffersSection() {
         </div>
       </div>
 
-      <div className="grid sm:grid-cols-3 gap-6 sm:gap-10 mt-6">
+      <div className="hidden sm:grid sm:grid-cols-3 gap-6 sm:gap-10 mt-6">
         <a href="https://buy.stripe.com/fZufZh2BmarjcCpcdn6AM07" target="_blank" rel="noopener noreferrer" className="font-mono text-xs font-medium px-5 py-2.5 bg-[var(--foreground)] text-[var(--background)] hover:opacity-90 transition-opacity cursor-pointer justify-self-start">
           Book a consultation
         </a>
