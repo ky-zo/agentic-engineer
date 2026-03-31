@@ -28,10 +28,11 @@ export function TestimonialSection() {
 
         <blockquote className="relative space-y-3 pt-8">
           <p className="text-sm leading-relaxed text-[var(--muted)]">
-            We completely changed how the company operates. AI is now embedded in
-            how we think and work, and the impact went far beyond the original
-            scope, as we started thinking with AI-first principles about all the processes and workflows.<br/><br/>
-            It was a <span className="font-bold">company-wide mentality shift</span>.
+            It started as a developer exercise, but quickly turned into a
+            full  <span className="font-bold">company-wide mentality shift</span>. Product, QA, design, support, every team
+            changed how they work. AI is now embedded in how we think, far
+            beyond the original scope.<br/><br/>
+            
           </p>
           <p
             className="text-lg  italic tracking-tight text-[var(--foreground)] transition-all duration-700 delay-200 ease-out sm:text-xl"

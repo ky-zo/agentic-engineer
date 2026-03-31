@@ -9,22 +9,22 @@ const metadataBaseUrl =
 
 export const metadata: Metadata = {
   metadataBase: new URL(metadataBaseUrl),
-  title: "Agentic Engineering",
+  title: "Agentic Engineer",
   description:
-    "Hands-on sprints that help software teams move faster with AI-native workflows, standards, and habits.",
-  applicationName: "Agentic Engineering",
+    "We install the AI-native system behind your team's workflows, tools, and habits in 2 weeks, or you don't pay.",
+  applicationName: "Agentic Engineer",
   openGraph: {
-    title: "Agentic Engineering",
+    title: "Agentic Engineer",
     description:
-      "Turn your software team into an AI-native, higher-leverage engineering organization.",
-    siteName: "Agentic Engineering",
+      "We install the AI-native system I spent 14 months building into your team's workflows, tools, and habits in 2 weeks.",
+    siteName: "Agentic Engineer",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Agentic Engineering",
+    title: "Agentic Engineer",
     description:
-      "Hands-on sprints for software teams that want to move faster with AI-native workflows and standards.",
+      "We install the AI-native system behind your team's workflows, tools, and habits in 2 weeks, or you don't pay.",
   },
 };
 

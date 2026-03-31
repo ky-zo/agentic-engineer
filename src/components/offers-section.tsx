@@ -22,147 +22,112 @@ export function OffersSection() {
       </SectionLabel>
 
       <div className="grid sm:grid-cols-3 gap-6 sm:gap-10">
-        {/* Turn your team into AI-first speed */}
+        {/* One-off AI consultation */}
         <div>
           <AccelerateAnimation />
           <p
             className="text-lg font-semibold tracking-tight mb-1 mt-2"
             style={{ letterSpacing: "-0.02em" }}
           >
-            Turn your team
+            One-off AI
             <br />
-            into AI-first speed
+            consultation
           </p>
           <p className="font-mono text-sm text-[var(--muted)] mb-3">
-            $10 000 &bull; one-time
+            $800 &bull; one-time
+          </p>
+          <p className="text-sm font-medium text-[var(--foreground)] mb-1.5">
+            Solve a specific AI problem
           </p>
           <ul className="space-y-1.5 text-sm text-[var(--muted)]">
             <li className="flex gap-2">
               <span className="font-mono text-[var(--accent)] shrink-0">
                 &gt;
               </span>
-              Audit current workflows
+              Focused help with a specific AI problem or workflow
             </li>
             <li className="flex gap-2">
               <span className="font-mono text-[var(--accent)] shrink-0">
                 &gt;
               </span>
-              Set up AI tooling for engineering &amp; QA
-            </li>
-            <li className="flex gap-2">
-              <span className="font-mono text-[var(--accent)] shrink-0">
-                &gt;
-              </span>
-              4 hands-on workshops
-            </li>
-            <li className="flex gap-2">
-              <span className="font-mono text-[var(--accent)] shrink-0">
-                &gt;
-              </span>
-              Train the team on tools and patterns
+              Bring your questions, blockers, or rough ideas
             </li>
           </ul>
         </div>
 
-        {/* Hire fractional AI & product co-founder */}
+        {/* AI workshops for your team */}
         <div>
           <MultiplyAnimation />
           <p
             className="text-lg font-semibold tracking-tight mb-1 mt-2"
             style={{ letterSpacing: "-0.02em" }}
           >
-            Hire fractional AI
-            <br />& product co-founder
+            AI workshops
+            <br />
+            for your team
           </p>
           <p className="font-mono text-sm text-[var(--muted)] mb-3">
-            $10 000/mo &bull; ongoing
+            $10,000 &bull; one-time
+          </p>
+          <p className="text-sm font-medium text-[var(--foreground)] mb-1.5">
+            Upskill your team on AI
           </p>
           <ul className="space-y-1.5 text-sm text-[var(--muted)]">
             <li className="flex gap-2">
               <span className="font-mono text-[var(--accent)] shrink-0">
                 &gt;
               </span>
-              Embedded in your team&apos;s rhythm
+              Four tailored workshops to help your team adopt AI effectively
             </li>
             <li className="flex gap-2">
               <span className="font-mono text-[var(--accent)] shrink-0">
                 &gt;
               </span>
-              Strategic AI roadmap ownership
-            </li>
-            <li className="flex gap-2">
-              <span className="font-mono text-[var(--accent)] shrink-0">
-                &gt;
-              </span>
-              Ongoing implementation support
-            </li>
-            <li className="flex gap-2">
-              <span className="font-mono text-[var(--accent)] shrink-0">
-                &gt;
-              </span>
-              Cross-team AI adoption
-            </li>
-            <li className="flex gap-2">
-              <span className="font-mono text-[var(--accent)] shrink-0">
-                &gt;
-              </span>
-              Workflow design &amp; automation
+              Practical guidance, workflows, and hands-on support
             </li>
           </ul>
         </div>
 
-        {/* Implement AI Agents orchestrator */}
+        {/* AI agent orchestration system */}
         <div>
           <PipelineAnimation />
           <p
             className="text-lg font-semibold tracking-tight mb-1 mt-2"
             style={{ letterSpacing: "-0.02em" }}
           >
-            Implement AI
+            AI agent
             <br />
-            agents orchestrator
+            orchestration system
           </p>
           <p className="font-mono text-sm text-[var(--muted)] mb-3">
-            $5 000/mo &bull; ongoing
+            $5,000/mo &bull; ongoing
+          </p>
+          <p className="text-sm font-medium text-[var(--foreground)] mb-1.5">
+            Deploy AI agents in your business
           </p>
           <ul className="space-y-1.5 text-sm text-[var(--muted)]">
             <li className="flex gap-2">
               <span className="font-mono text-[var(--accent)] shrink-0">
                 &gt;
               </span>
-              Custom AI orchestration system
+              Proprietary AI orchestration system
             </li>
             <li className="flex gap-2">
               <span className="font-mono text-[var(--accent)] shrink-0">
                 &gt;
               </span>
-              End-to-end pipeline setup
-            </li>
-            <li className="flex gap-2">
-              <span className="font-mono text-[var(--accent)] shrink-0">
-                &gt;
-              </span>
-              Integration with your stack
-            </li>
-            <li className="flex gap-2">
-              <span className="font-mono text-[var(--accent)] shrink-0">
-                &gt;
-              </span>
-              Automation workflows
-            </li>
-            <li className="flex gap-2">
-              <span className="font-mono text-[var(--accent)] shrink-0">
-                &gt;
-              </span>
-              Full handoff with documentation
+              Works especially well alongside the team workshops
             </li>
           </ul>
         </div>
       </div>
 
-      <div className="flex justify-center mt-8">
-        <CalButton className="font-mono text-xs font-medium px-5 py-2.5 bg-[var(--foreground)] text-[var(--background)] hover:opacity-90 transition-opacity cursor-pointer">
-          Book a call
+      <div className="grid sm:grid-cols-3 gap-6 sm:gap-10 mt-6">
+        <a href="https://buy.stripe.com/fZufZh2BmarjcCpcdn6AM07" target="_blank" rel="noopener noreferrer" className="font-mono text-xs font-medium px-5 py-2.5 bg-[var(--foreground)] text-[var(--background)] hover:opacity-90 transition-opacity cursor-pointer justify-self-start">
+          Book a consultation
+        </a>
+        <CalButton className="font-mono text-xs font-medium px-5 py-2.5 bg-[var(--foreground)] text-[var(--background)] hover:opacity-90 transition-opacity cursor-pointer justify-self-start">
+          Book an intro call
         </CalButton>
       </div>
     </Section>

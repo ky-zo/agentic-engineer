@@ -18,9 +18,9 @@ export function HeroSection() {
           </h1>
 
           <p className="text-base leading-relaxed text-[var(--muted)] mb-8">
-            I help software companies roll AI into engineering, QA, and internal
-            workflows in 2 weeks, so the team actually ships faster instead of
-            just experimenting.
+            We install the AI-native system I spent 14 months building into
+            your team's workflows, tools, and habits in 2 weeks. If it doesn't
+            change how your team works, you don't pay.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 items-center mb-10">

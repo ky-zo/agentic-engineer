@@ -6,8 +6,8 @@ import { useRef } from "react";
 const signals = [
   "AI-native companies are pulling away, and the gap is getting harder to close.",
   "Your team is experimenting with AI, but the company hasn't made the mental shift.",
-  "Everyone can feel the team is moving too slowly.",
-  "You haven't seen what good looks like yet, so it's easy to underestimate how wide the gap already is.",
+  "Opportunities are slipping by because the team can't move fast enough, and hiring more people won't close the gap.",
+  "Competitors with smaller teams are shipping faster because they've already made the shift.",
 ];
 
 function SignalItem({ signal }: { signal: string }) {
@@ -17,7 +17,7 @@ function SignalItem({ signal }: { signal: string }) {
   return (
     <li ref={ref} className="flex gap-3">
       <span
-        className="problem-dot mt-1.5 inline-block size-1.5 shrink-0 rounded-[1px]"
+        className="problem-dot mt-2 inline-block size-1.5 shrink-0 rounded-[1px]"
         data-in-view={isInView}
       />
       <span>{signal}</span>
@@ -27,7 +27,7 @@ function SignalItem({ signal }: { signal: string }) {
 
 export function ProblemSignalsList() {
   return (
-    <ul className="space-y-2 pl-4 text-sm text-[var(--muted)]">
+    <ul className="space-y-2 pl-4 text-base text-[var(--muted)]">
       {signals.map((signal) => (
         <SignalItem key={signal} signal={signal} />
       ))}

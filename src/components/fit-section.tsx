@@ -1,11 +1,13 @@
 import { Section, SectionLabel } from "@/components/section";
+import { PiHeartFill, PiHeartBreak } from "react-icons/pi";
+import { ShakeOnScroll } from "@/components/shake-on-scroll";
 
 export function FitSection() {
   return (
     <Section>
       <div className="grid sm:grid-cols-2 gap-12 sm:gap-16">
         <div>
-          <SectionLabel>Best fit</SectionLabel>
+          <SectionLabel><ShakeOnScroll><PiHeartFill className="inline text-red-500" /></ShakeOnScroll> Best fit</SectionLabel>
           <ul className="space-y-2.5 text-sm">
             <li className="flex gap-3">
               <span className="font-mono text-[var(--accent)] shrink-0">+</span>
@@ -28,7 +30,7 @@ export function FitSection() {
         </div>
         <div>
           <p className="font-mono text-xs font-medium tracking-wider uppercase text-[var(--muted)] mb-6 opacity-60 flex items-center gap-3">
-            <span className="shrink-0">Not a fit</span>
+            <span className="shrink-0"><ShakeOnScroll><PiHeartBreak className="inline text-red-500" /></ShakeOnScroll> Not a fit</span>
             <span className="flex-1 border-t border-[var(--border)]" />
           </p>
           <ul className="space-y-2.5 text-sm text-[var(--muted)]">
